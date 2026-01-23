@@ -1,0 +1,60 @@
+const fs = require("fs");
+
+const args = process.argv;
+const command = args[2];
+
+if (command === "read") {
+    fs.readFile(args[3], "utf-8", function (err, data) {
+        if (err) {
+            console.log("error");
+        } else {
+            console.log(data);
+        }
+    });
+}
+
+else if (command === "write") {
+    fs.writeFile(args[3], args[4], function (err) {
+        if (err) {
+            console.log("error");
+        } else {
+            console.log("written");
+        }
+    });
+}
+
+else if (command === "copy") {
+    fs.copyFile(args[3], args[4], function (err) {
+        if (err) {
+            console.log("error");
+        } else {
+            console.log("copied");
+        }
+    });
+}
+
+else if (command === "delete") {
+    fs.unlink(args[3], function (err) {
+        if (err) {
+            console.log("error");
+        } else {
+            console.log("deleted");
+        }
+    });
+}
+
+else if (command === "list") {
+    fs.readdir(args[3] || ".", function (err, files) {
+        if (err) {
+            console.log("error");
+        } else {
+            for (let i = 0; i < files.length; i++) {
+                console.log(files[i]);
+            }
+        }
+    });
+}
+
+else {
+    console.log("wrong command");
+}
