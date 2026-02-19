@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Employee</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <span>EMPLOYEE</span> PAYROLL
+    </div>
+</header>
+
+<div class="form-container">
+    <h2>Employee Payroll Form</h2>
+
+    <form action="/add" method="POST">
+        <label>Name</label>
+        <input type="text" name="name" required>
+
+        <label>Department</label>
+        <select name="department">
+            <option>HR</option>
+            <option>Sales</option>
+            <option>Finance</option>
+            <option>Engineer</option>
+        </select>
+
+        <label>Salary</label>
+        <input type="number" name="basicSalary" required>
+
+        <label>Avatar Color</label>
+        <select name="avatarColor">
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+            <option value="orange">Orange</option>
+            <option value="purple">Purple</option>
+        </select>
+
+        <div class="form-buttons">
+            <a href="/" class="cancel">Cancel</a>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

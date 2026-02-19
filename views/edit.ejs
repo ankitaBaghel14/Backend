@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Employee</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <span>EMPLOYEE</span> PAYROLL
+    </div>
+</header>
+
+<div class="form-container">
+    <h2>Edit Employee</h2>
+
+    <form action="/edit/<%= employee.id %>" method="POST">
+
+        <label>Name</label>
+        <input type="text" name="name" value="<%= employee.name %>" required>
+
+        <label>Department</label>
+        <select name="department">
+            <option value="HR" <%= employee.department==='HR'?'selected':'' %>>HR</option>
+            <option value="Sales" <%= employee.department==='Sales'?'selected':'' %>>Sales</option>
+            <option value="Finance" <%= employee.department==='Finance'?'selected':'' %>>Finance</option>
+            <option value="Engineer" <%= employee.department==='Engineer'?'selected':'' %>>Engineer</option>
+        </select>
+
+        <label>Salary</label>
+        <input type="number" name="basicSalary" value="<%= employee.basicSalary %>" required>
+
+        <label>Start Date</label>
+        <input type="date" name="startDate" value="<%= employee.startDate %>">
+
+        <label>Avatar Color</label>
+        <select name="avatarColor">
+            <option value="blue" <%= employee.avatarColor==='blue'?'selected':'' %>>Blue</option>
+            <option value="green" <%= employee.avatarColor==='green'?'selected':'' %>>Green</option>
+            <option value="orange" <%= employee.avatarColor==='orange'?'selected':'' %>>Orange</option>
+            <option value="purple" <%= employee.avatarColor==='purple'?'selected':'' %>>Purple</option>
+        </select>
+
+        <div class="form-buttons">
+            <a href="/" class="cancel">Cancel</a>
+            <button type="submit">Update</button>
+        </div>
+
+    </form>
+</div>
+
+</body>
+</html>

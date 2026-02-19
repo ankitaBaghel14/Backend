@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Payroll</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <span>EMPLOYEE</span> PAYROLL
+    </div>
+    <a href="/add" class="add-btn">+ Add User</a>
+</header>
+
+<div class="container">
+    <h2>Employee Details</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Salary</th>
+                <th>Start Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% employees.forEach(emp => { %>
+                <tr>
+                    <td>
+                        <div class="user-info">
+                            <div class="avatar" style="background:<%= emp.avatarColor %>">
+                                <%= emp.name.charAt(0).toUpperCase() %>
+                            </div>
+                            <%= emp.name %>
+                        </div>
+                    </td>
+                    <td><%= emp.department %></td>
+                    <td>₹ <%= emp.basicSalary %></td>
+                    <td><%= emp.startDate || "-" %></td>
+                    <td>
+                        <a href="/edit/<%= emp.id %>" class="edit">✏</a>
+                        <a href="/delete/<%= emp.id %>" class="delete">🗑</a>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
